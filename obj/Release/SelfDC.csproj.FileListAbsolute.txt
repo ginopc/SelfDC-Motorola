@@ -1,0 +1,12 @@
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\obj\Release\ResolveAssemblyReference.cache
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\obj\Release\SelfDC.MainForm.resources
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\obj\Release\SelfDC.Properties.Resources.resources
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\obj\Release\SelfDC.csproj.GenerateResource.Cache
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\bin\Release\SelfDC.exe
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\bin\Release\SelfDC.pdb
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\bin\Release\Symbol.Barcode2.DesignCF35.dll
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\bin\Release\Symbol.dll
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\bin\Release\Symbol.xml
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\bin\Release\Symbol.Barcode2.DesignCF35.xml
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\obj\Release\SelfDC.exe
+C:\Documenti\Visual Studio 2008\Projects\WCE_Samples\SelfDC\obj\Release\SelfDC.pdb

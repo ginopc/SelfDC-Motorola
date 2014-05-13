@@ -7,9 +7,9 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SmartDC")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Data Collector per PdV")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Supermercati Consorziati Sardegna sc a rl")]
 [assembly: AssemblyProduct("SmartDC")]
 [assembly: AssemblyCopyright("Copyright © 2014 by M. Aru")]
 [assembly: AssemblyTrademark("")]
@@ -30,7 +30,7 @@ using System.Resources;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.0.1.*")]
+[assembly: AssemblyVersion("0.0.3.*")]
 
 // Below attribute is to suppress FxCop warning "CA2232 : Microsoft.Usage : Add STAThreadAttribute to assembly"
 // as Device app does not support STA thread.

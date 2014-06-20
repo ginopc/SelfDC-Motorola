@@ -1,75 +1,43 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.IO;
 using System.Reflection;
 using SelfDC.Models;
+using SelfDC.Utils;
 
 namespace SelfDC
 {
-    public partial class MainForm : Form
+    public partial class LabelsForm : Form
     {
         bool ItemEdit = false;
-        private List<OrderItem> listaProdotti;
-        private Settings appSettings;
-        // private string appFileName = string.Format("{0}\\conf.txt", Path.GetDirectoryName(Assembly.GetExecutingAssembly().GetName().CodeBase));
-        private string appFileName = string.Format("{0}\\conf.txt", Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase));
+        private List<LabelItem> listaProdotti;
 
         /** costruttore della classe */
-        public MainForm()
+        public LabelsForm()
         {
             InitializeComponent();
             txtCode.Text = "";
             txtQta.Text = "";
             listBox.Items.Clear();
 
-            listaProdotti = new List<OrderItem>();
+            listaProdotti = new List<LabelItem>();
         }
 
-        /** Caricamento della maschera */
-        private void FormLoad(object sender, EventArgs e)
+        private void LabelsForm_Load(object sender, EventArgs e)
         {
-            // Carico le impostazioni dell'applicazione
-            appSettings = new Settings();
-            appSettings.LoadFromFile(appFileName);
-
             // Imposto la maschera a tutto schermo
             this.WindowState = FormWindowState.Maximized;
 
             // server per il debug sull'emulatore
-            if (Symbol.Win32.PlatformType.IndexOf("PocketPC") < 0)
-                bcReader.EnableScanner = true;
+            if (System.Environment.OSVersion.Platform.ToString() == "WinCE")
+                    bcReader.EnableScanner = true;
         }
 
-        /** evento di scansione dello scanner */
         private void bcReader_OnScan(Symbol.Barcode2.ScanDataCollection scanDataCollection)
         {
             if (scanDataCollection.GetFirst == null) return;
             String code = scanDataCollection.GetFirst.Text;
-
-            /*
-             * ### eliminato ###
-             *
-            // controllo se è già stato inserito
-            foreach (ListViewItem row in listBox.Items)
-            {
-                if ((row.Text == code) || (row.SubItems[1].Text == code))
-                {
-                    // incremento la qta
-                    row.Selected = true;
-                    if (MessageBox.Show("Incremento la qta?", "Già presente", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.No)
-                        return;
-                    row.SubItems[2].Text = Convert.ToString(Convert.ToInt16(row.SubItems[2].Text) + 1);
-                    // non inserisco una nuova riga
-                    return;
-                }
-            }
-             */
 
             actNew(bcReader, null);
 
@@ -150,15 +118,15 @@ namespace SelfDC
         }
 
         /*  Form Resize */
-        private void FormResize(object sender, EventArgs e)
+        private void LabelsForm_Resize(object sender, EventArgs e)
         {
-            double ctlWidth = (double) ClientSize.Width;
+            double ctlWidth = (double)ClientSize.Width;
 
             /** Resize listBox */
-            listBox.Width = (int) ctlWidth;
-            listBox.Columns[0].Width = (int) (ctlWidth * 0.50);
-            listBox.Columns[1].Width = (int) (ctlWidth * 0.30);
-            listBox.Columns[1].Width = (int) (ctlWidth * 0.20);
+            listBox.Width = (int)ctlWidth;
+            listBox.Columns[0].Width = (int)(ctlWidth * 0.50);
+            listBox.Columns[1].Width = (int)(ctlWidth * 0.30);
+            listBox.Columns[1].Width = (int)(ctlWidth * 0.20);
         }
 
         // Visualizza lo stato dello scanner nella barra di stato
@@ -169,7 +137,7 @@ namespace SelfDC
 
         private void actQuit(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         /** Esporta la lista in un file */
@@ -193,34 +161,14 @@ namespace SelfDC
                                     MessageBoxIcon.Question, 
                                     MessageBoxDefaultButton.Button1);
             if (res == DialogResult.No) return;
-/*
-            // Scrive il file
-            StreamWriter sw;
-            try
-            {
-                sw = new StreamWriter(appSettings.OrdineFileName);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(
-                    "Errore di creazione del file dati" + ex.StackTrace
-                    , "Errore"
-                    , MessageBoxButtons.OK
-                    , MessageBoxIcon.Exclamation
-                    , MessageBoxDefaultButton.Button1);
-                return;
-            }
 
-            // Esporta i dati
-            string line;
-            for (int i = 0; i < listBox.Items.Count; i++)
+            listaProdotti.Clear();
+            foreach (ListViewItem item in listBox.Items)
             {
-                line = string.Format("{0};{1};{2};{3}",appSettings.CodiceCliente , listBox.Items[i].Text, listBox.Items[i].SubItems[1].Text, listBox.Items[i].SubItems[2].Text);
-                sw.WriteLine(line);
+                listaProdotti.Add(new LabelItem(item.Text, item.SubItems[1].Text, Convert.ToInt32(item.SubItems[2].Text)));
             }
-            sw.Close();
-*/
-            if (EsportaOrdine(appSettings.OrdineFileName) < 0)
+            
+            if (ScsUtils.EsportaEtichette(listaProdotti,Settings.EtichettaFilename) < 0)
             {
                 return;
             }
@@ -250,7 +198,7 @@ namespace SelfDC
             {
                 // editing abilitato
                 ItemEdit = true;
-                mnuDelete.Enabled = true;
+                mnuRemove.Enabled = true;
                 cmnuDelete.Enabled = true;
 
                 txtQta.Enabled = true;
@@ -262,7 +210,7 @@ namespace SelfDC
             else {
                 // editing disabilitato
                 ItemEdit = false;
-                mnuDelete.Enabled = false;
+                mnuRemove.Enabled = false;
                 cmnuDelete.Enabled = false;
 
 
@@ -294,10 +242,15 @@ namespace SelfDC
                 item = listBox.Items[listBox.SelectedIndices[0]];
                 if (cbCodInterno.Checked)
                     item.SubItems[1].Text = txtCode.Text; // cod interno
+
                 else
                     item.Text = txtCode.Text; // ean
                 item.SubItems[2].Text = txtQta.Text; // qta
                 ItemEdit = false;
+
+                // nuovo inserimento con OrderItem
+                LabelItem newItem = new LabelItem(item.Text, item.SubItems[1].Text, Convert.ToInt32(item.SubItems[2].Text));
+                listaProdotti.Add(newItem);
             }
             else // Nuovo inserimento manuale
             {
@@ -320,26 +273,28 @@ namespace SelfDC
             }
 
             // pulisco e disabilito i campi
-            cbCodInterno.Checked = false;
-            cbCodInterno.Enabled = false;
+            actFieldReset();
+        }
+
+        /** Reimposta ai controlli della maschera */
+        private void actFieldReset()
+        {
             txtCode.Text = "";
             txtCode.Enabled = false;
             txtQta.Text = "";
             txtQta.Enabled = false;
+            cbCodInterno.Checked = true;
+            cbCodInterno.Enabled = false;
             btnSave.Enabled = false;
         }
 
         /** Annulla modifica */
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            txtCode.Text = "";
-            txtQta.Text = "";
-            cbCodInterno.Checked = true;
-            btnSave.Enabled = false;
-            // panEdit.Visible = false;
+            actFieldReset();
         }
 
-
+        /** visualizza le info sul programma */
         private void actAbout(object sender, EventArgs e)
         {
             string ProductName = Assembly.GetExecutingAssembly().FullName;
@@ -351,28 +306,17 @@ namespace SelfDC
                 ,MessageBoxDefaultButton.Button1);
         }
 
-        private void MainForm2_Closing(object sender, CancelEventArgs e)
+        /** Elimina tutte le righe dell'ordine */
+        private void actRemoveAll(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show(
-                "Vuoi uscire dall'applicazione?"
-                , "Uscita"
-                , MessageBoxButtons.YesNo
-                , MessageBoxIcon.Question
-                , MessageBoxDefaultButton.Button1);
+            DialogResult res;
 
-            if (res == DialogResult.No) e.Cancel=true;
-        }
+            res = MessageBox.Show("Confermi l'eliminazine completa?", "Elimina Tutto"
+                    , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (res == DialogResult.No)
+                return;
 
-        private void MainForm2_Closed(object sender, EventArgs e)
-        {
-            // Salvo le impostazioni
-            appSettings.SaveToFile(appFileName);
-
-            // TODO: se esiste un ordine in fase di compilazione lo esporto su un file temporaneo
-
-            // Prima di chiudere disabilito lo scanner
-            if (Symbol.Win32.PlatformType.IndexOf("PocketPC") < 0)
-                if (bcReader.EnableScanner) bcReader.EnableScanner = false;
+            this.listBox.Items.Clear();
         }
 
         private void txtQta_KeyPress(object sender, KeyPressEventArgs e)
@@ -395,32 +339,31 @@ namespace SelfDC
 
         }
 
-        private int EsportaOrdine(string FileName)
+        /** richiesta chiusura */
+        private void MainForm_Closing(object sender, CancelEventArgs e)
         {
-            int result = -1;
+            DialogResult res = MessageBox.Show(
+                            "Vuoi uscire dall'applicazione?"
+                            , "Uscita"
+                            , MessageBoxButtons.YesNo
+                            , MessageBoxIcon.Question
+                            , MessageBoxDefaultButton.Button1);
 
-            // Scrive il file
-            StreamWriter sw;
-            try
-            {
-                sw = new StreamWriter(FileName);
-            }
-            catch (Exception ex)
-            {
-                return -1;
-            }
+            if (res == DialogResult.No) e.Cancel = true;
+        }
 
-            // Esporta i dati
-            string line;
-            for (int i = 0; i < listBox.Items.Count; i++)
-            {
-                line = string.Format("{0};{1};{2};{3}", appSettings.CodiceCliente, listBox.Items[i].Text, listBox.Items[i].SubItems[1].Text, listBox.Items[i].SubItems[2].Text);
-                sw.WriteLine(line);
-                result++;
-            }
-            sw.Close();
+        /** dopo conferma chiusura */
+        private void MainForm_Closed(object sender, EventArgs e)
+        {
+            // Salvo le impostazioni
+            Settings.SaveToFile(Settings.AppCfgFileName);
 
-            return result;
+            // TODO: se esiste un ordine in fase di compilazione lo esporto su un file temporaneo
+
+            // Prima di chiudere disabilito lo scanner
+            if (System.Environment.OSVersion.Platform.ToString() == "WinCE")
+                if (bcReader.EnableScanner) bcReader.EnableScanner = false;
+
         }
     }
 }

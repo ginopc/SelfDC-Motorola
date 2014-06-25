@@ -217,7 +217,7 @@ namespace SelfDC
                 // editing abilitato
                 ItemEdit = true;
                 mnuRemove.Enabled = true;
-                cmnuDelete.Enabled = true;
+                cmnuRemove.Enabled = true;
 
                 txtQta.Enabled = true;
                 btnSave.Enabled = true;
@@ -229,7 +229,7 @@ namespace SelfDC
                 // editing disabilitato
                 ItemEdit = false;
                 mnuRemove.Enabled = false;
-                cmnuDelete.Enabled = false;
+                cmnuRemove.Enabled = false;
 
 
                 txtCode.Enabled = true;

@@ -34,9 +34,9 @@
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem();
             this.statusBar = new System.Windows.Forms.StatusBar();
             this.contextMenu = new System.Windows.Forms.ContextMenu();
-            this.cmnuDelete = new System.Windows.Forms.MenuItem();
+            this.cmnuRemove = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.menuItem6 = new System.Windows.Forms.MenuItem();
+            this.cmnuRemoveAll = new System.Windows.Forms.MenuItem();
             this.bcReader = new Symbol.Barcode2.Design.Barcode2();
             this.mainMenu = new System.Windows.Forms.MainMenu();
             this.mnuQuit = new System.Windows.Forms.MenuItem();
@@ -87,23 +87,23 @@
             // 
             // contextMenu
             // 
-            this.contextMenu.MenuItems.Add(this.cmnuDelete);
+            this.contextMenu.MenuItems.Add(this.cmnuRemove);
             this.contextMenu.MenuItems.Add(this.menuItem4);
-            this.contextMenu.MenuItems.Add(this.menuItem6);
-            this.contextMenu.Popup += new System.EventHandler(this.contextMenu_Popup);
+            this.contextMenu.MenuItems.Add(this.cmnuRemoveAll);
             // 
-            // cmnuDelete
+            // cmnuRemove
             // 
-            this.cmnuDelete.Text = "Elimina";
-            this.cmnuDelete.Click += new System.EventHandler(this.actRemove);
+            this.cmnuRemove.Text = "Elimina";
+            this.cmnuRemove.Click += new System.EventHandler(this.actRemove);
             // 
             // menuItem4
             // 
             this.menuItem4.Text = "-";
             // 
-            // menuItem6
+            // cmnuRemoveAll
             // 
-            this.menuItem6.Text = "Elimina Tutti";
+            this.cmnuRemoveAll.Text = "Elimina Tutti";
+            this.cmnuRemoveAll.Click += new System.EventHandler(this.actRemoveAll);
             // 
             // bcReader
             // 
@@ -393,7 +393,7 @@
         private Symbol.Barcode2.Design.Barcode2 bcReader;
 #endif
 
-        private System.Windows.Forms.MenuItem cmnuDelete;
+        private System.Windows.Forms.MenuItem cmnuRemove;
         private System.Windows.Forms.MainMenu mainMenu;
         private System.Windows.Forms.MenuItem mnuFile;
         private System.Windows.Forms.MenuItem mnuQuit;
@@ -412,7 +412,7 @@
         private System.Windows.Forms.ColumnHeader clQta;
         private System.Windows.Forms.ColumnHeader clProductCode;
         private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem menuItem6;
+        private System.Windows.Forms.MenuItem cmnuRemoveAll;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox cbCodInterno;
         public System.Windows.Forms.ContextMenu contextMenu;

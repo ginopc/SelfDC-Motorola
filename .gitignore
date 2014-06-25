@@ -1,0 +1,9 @@
+# Build Folders
+[Bb]in/
+[Oo]bj/
+[Dd]ist/
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates

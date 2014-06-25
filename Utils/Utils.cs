@@ -19,6 +19,7 @@ namespace SelfDC.Utils
             }
             catch (Exception ex)
             {
+                WriteLog("Si e' verificato un errore con messaggio: " + ex.Message);
                 return -1;
             }
 
@@ -52,6 +53,7 @@ namespace SelfDC.Utils
             }
             catch (Exception ex)
             {
+                WriteLog("Si e' verificato un errore con messaggio: " + ex.Message);
                 return -1;
             }
 

@@ -81,10 +81,10 @@ namespace SelfDC
             else
                 btnWidth = btnHeight;
 
+
             /*
             for (int i = 0; i < numCols; i++) // colonne
             {
-                int 
                 for (int j = 0; j < numRows; j++) // righe
                 {
                     if ( )

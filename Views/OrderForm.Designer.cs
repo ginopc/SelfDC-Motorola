@@ -378,6 +378,7 @@
             this.Closed += new System.EventHandler(this.OrderForm_Closed);
             this.Activated += new System.EventHandler(this.OrderForm_Activated);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.OrderForm_Closing);
+            this.Resize += new System.EventHandler(this.OrderForm_Resize);
             this.panEdit.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -23,6 +23,7 @@ namespace SelfDC
             listBox.Items.Clear();
 
             listaProdotti = new List<OrderItem>();
+            ScsUtils.WriteLog("Creazione maschera " + this.Name);
         }
 
         private void OrderForm_Load(object sender, EventArgs e)
@@ -66,6 +67,8 @@ namespace SelfDC
             int index = listBox.SelectedIndices[0];
             ListViewItem item = listBox.Items[index];
 
+            ScsUtils.WriteLog("In " + this.Name + ", modifica della riga " + item.Text);
+
             if (item.Text == "")
             {
                 cbCodInterno.Checked = true;
@@ -82,14 +85,13 @@ namespace SelfDC
             // blocco la checkbox
             cbCodInterno.Enabled = false;
             txtQta.Focus();
-
-            // Salvo la riga nell'ordine
-            OrderItem oItem = new OrderItem(item.Text);
         }
 
         /** Inizia un nuovo inserimento manuale */
         private void actNew(object sender, EventArgs e)
         {
+            ScsUtils.WriteLog("In " + this.Name + ", inserimento nuova riga");
+
             txtCode.Text = "";
             txtCode.Enabled = true;
             txtQta.Text = "";
@@ -105,6 +107,9 @@ namespace SelfDC
         /** Elimina l'elemento selezionato */
         private void actRemove(object sender, EventArgs e)
         {
+            int index = listBox.SelectedIndices[0];
+            ListViewItem item = listBox.Items[index];
+
             if (listBox.SelectedIndices.Count == 0)
             {
                 MessageBox.Show("Seleziona l'elemento da eliminare","Elimina Riga");
@@ -120,7 +125,8 @@ namespace SelfDC
 
             if (res == DialogResult.No) return;
 
-            listBox.Items.Remove(listBox.Items[listBox.SelectedIndices[0]]);
+            listBox.Items.Remove(listBox.Items[index]);
+            ScsUtils.WriteLog("In " + this.Name + ", modifica della riga " + item.Text);
         }
 
         /*  Form Resize */
@@ -143,13 +149,16 @@ namespace SelfDC
 
         private void actQuit(object sender, EventArgs e)
         {
+            bcReader.EnableScanner = false;
             this.Hide();
         }
 
         /** Esporta la lista in un file */
         private void actExport(object sender, EventArgs e)
         {
-            if (listBox.Items.Count == 0)
+            ScsUtils.WriteLog("In " + this.Name + ", esportazione dati su file");
+
+           if (listBox.Items.Count == 0)
             {
                 MessageBox.Show(
                     "Nessun dato da esportare"
@@ -234,6 +243,7 @@ namespace SelfDC
             {
                 MessageBox.Show("Niente da inserire", "Salva", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
                 return;
+				actFieldReset();
             }
 
             // disabilito i campi x evitare modifiche durante il salvataggio
@@ -295,24 +305,14 @@ namespace SelfDC
             actFieldReset();
         }
 
-        /** visualizza le info sul programma */
-        private void actAbout(object sender, EventArgs e)
-        {
-            string ProductName = Assembly.GetExecutingAssembly().FullName;
-            MessageBox.Show(
-                ProductName + "\ndesigned by Maurizio Aru"
-                , "Info"
-                , MessageBoxButtons.OK
-                , MessageBoxIcon.Asterisk
-                ,MessageBoxDefaultButton.Button1);
-        }
-
         /** Elimina tutte le righe dell'ordine */
         private void actRemoveAll(object sender, EventArgs e)
         {
             DialogResult res;
 
-            res = MessageBox.Show("Confermi l'eliminazine completa?", "Elimina Tutto"
+			ScsUtils.WriteLog("In " + this.Name + ", elimino tutti gli elementi");
+			
+			res = MessageBox.Show("Confermi l'eliminazine completa?", "Elimina Tutto"
                     , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (res == DialogResult.No)
                 return;
@@ -324,6 +324,7 @@ namespace SelfDC
         {
             if (e.KeyChar == 13)
                 actSave(sender, e);
+
                 
         }
 
@@ -370,6 +371,7 @@ namespace SelfDC
         private void OrderForm_Activated(object sender, EventArgs e)
         {
             ScsUtils.WriteLog(string.Format("Maschera {0} attivata", this.Name));
+            bcReader.EnableScanner = true;
         }
     }
 }

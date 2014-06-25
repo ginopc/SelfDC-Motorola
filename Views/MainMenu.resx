@@ -124,7 +124,7 @@
   <data name="picButton11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
-        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAASdGAAEnRgHWSSfaAAAAGXRFWHRTb2Z0d2FyZQB3d3cu
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAASdEAAEnRAGpt+RTAAAAGXRFWHRTb2Z0d2FyZQB3d3cu
         aW5rc2NhcGUub3Jnm+48GgAAMBRJREFUeF7t3V/or1l133EddZDUFMXgGJCYRGwvWsQ6F7kQB6IBiQkU
         LWiwFEqRYpnmojep0BmjlVJyJ1gDLRUVIo4QauIgpTSYi2pEKNZgiwjT2NQ4pNB/VK35Yzr9LN3H/GbP
         55zz+53v3s+z9tpv4XXhmjPPs579d83MOr/zrKeeegoAAGzGBgEAQG02CAAAarNBAABQmw0CAIDabBAA
@@ -339,7 +339,7 @@
   <data name="picButton23.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAACxAAAAsQAa0jvXUAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfeBhQPARHMLLQZ
+        YQUAAAAJcEhZcwAACw4AAAsOAUC+4UEAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfeBhQPARHMLLQZ
         AABmo0lEQVR4Xu3d3apmy1U3cO/AS/AS9iXkEvYdvDk1imlRggRld4KwQQm2Bw3KJqSRGJKc7D7RKCGw
         SIgH+yBZbBQCUVgEggQlLGP0uN/6Vdf/cTzVcz4fq9fqrzUH/Jk163PUqDFG1az59RsbbbTRRhtttNFG
         G2200UYbbbTRRhtttNFGG2200UYbbbTRRhtttNFGG2200UYbbbTRRhtttNFGG2200UYbbbTRRhtttNFG
@@ -787,7 +787,7 @@
   <data name="picButton12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
-        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAARCNAAEQjQHJiK/hAAAAGXRFWHRTb2Z0d2FyZQB3d3cu
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAARCLAAEQiwFJi+t6AAAAGXRFWHRTb2Z0d2FyZQB3d3cu
         aW5rc2NhcGUub3Jnm+48GgAANCtJREFUeF7t3Qm4LUV57vGccxg1jEaIqBEE1AhqEBHQqHEIoGKcTRTU
         e0kwiV6MEiSKw1VRUWOcSTAaMSqKSbwI4jwgiooxIjhBDEEEgigBhzAIIt63YO1D79rvPqvXWt01dP99
         nt+Tc77QVV91VdfXZ++1un/tV7/6FQAAye25554bydZyB7mL3FV2lG1lY3cMumODAADMS8V7K9lbniav
@@ -1020,7 +1020,7 @@
   <data name="picButton13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
-        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAARCNAAEQjQHJiK/hAAAAGXRFWHRTb2Z0d2FyZQB3d3cu
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAARCLAAEQiwFJi+t6AAAAGXRFWHRTb2Z0d2FyZQB3d3cu
         aW5rc2NhcGUub3Jnm+48GgAAUqlJREFUeF7t3QnYblP9//H/4RwcjnkmZc48HYUkMqVUkgalogFNKoVG
         zSoUJZImSRpUKhWlKIo0qVRoRCGJDIVE/f7vz+/c96+19/k+z3PPe+29P+e6Xte51nrue++119rD9957
         7bX+3//8z/+YmZlZy4SZZmZm1mxhppmZmTVbmGnWJvPnz18Uc7EMVsIaWBsbYFNsje2wE3bFXngi9sae
@@ -1377,16 +1377,13 @@
         P+74xSeMul8CAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="mnuMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="picButton22.GenerateMember" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
   <data name="picButton22.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
-        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAASdGAAEnRgHWSSfaAAAAGXRFWHRTb2Z0d2FyZQB3d3cu
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAASdEAAEnRAGpt+RTAAAAGXRFWHRTb2Z0d2FyZQB3d3cu
         aW5rc2NhcGUub3Jnm+48GgAARB5JREFUeF7t3QvQZlWd7/djN910IyAeGMEcwNO2SZUxpyDeYnBEQLxE
         CqRQRycWSCJVKklRSHEqpaiAUcpL6XFKxaiUllYh0RHiSEIQA0ri4BEdwowjFUdHvIwg4210BlRu5vcb
         9zvsXvy6+708l7XW/lL1qaJXv+/zrv/av/Xfu9/nefbzr373u98BqNxTnvKU7XK4HCUnyEvlNXKBvEc+
@@ -1681,6 +1678,9 @@
         t2zCWb1SAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="mnuMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
     <value>WEBPAD</value>
   </metadata>

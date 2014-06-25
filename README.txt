@@ -1,6 +1,9 @@
 Self DataColletor (SelfDC)
 ==========================
 
+##> Versione 0.0.4 del 23/06/2014
+Nuova maschera LabelsForm per il collezionamento dei codici per stampare le etichette.
+Inserito form MenuForm con stile mobile per la selezione delle maschere
 
 ##> Versione 0.0.3.2 del 13/05/2014 <##
 Il defaul nell'inserimento di un codice manuale è "codice interno". Precedentemente era Codice EAN.

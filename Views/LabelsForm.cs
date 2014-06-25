@@ -22,10 +22,14 @@ namespace SelfDC
             listBox.Items.Clear();
 
             listaProdotti = new List<LabelItem>();
+
+            ScsUtils.WriteLog("Creazione maschera " + this.Name);
         }
 
         private void LabelsForm_Load(object sender, EventArgs e)
         {
+            ScsUtils.WriteLog("Caricamento maschera " + this.Name);
+
             // Imposto la maschera a tutto schermo
             this.WindowState = FormWindowState.Maximized;
 
@@ -62,6 +66,9 @@ namespace SelfDC
         private void actEdit(object sender, EventArgs e)
         {
             int index = listBox.SelectedIndices[0];
+            ListViewItem item = listBox.Items[index];
+
+            ScsUtils.WriteLog("In " + this.Name + ", modifica della riga " + item.Text);
 
             if (listBox.Items[index].Text == "")
             {
@@ -84,6 +91,8 @@ namespace SelfDC
         /** Inizia un nuovo inserimento manuale */
         private void actNew(object sender, EventArgs e)
         {
+            ScsUtils.WriteLog("In " + this.Name + ", inserimento nuova riga");
+
             txtCode.Text = "";
             txtCode.Enabled = true;
             txtQta.Text = "";
@@ -99,6 +108,9 @@ namespace SelfDC
         /** Elimina l'elemento selezionato */
         private void actRemove(object sender, EventArgs e)
         {
+            int index = listBox.SelectedIndices[0];
+            ListViewItem item = listBox.Items[index];
+
             if (listBox.SelectedIndices.Count == 0)
             {
                 MessageBox.Show("Seleziona l'elemento da eliminare","Elimina Riga");
@@ -114,7 +126,8 @@ namespace SelfDC
 
             if (res == DialogResult.No) return;
 
-            listBox.Items.Remove(listBox.Items[listBox.SelectedIndices[0]]);
+            listBox.Items.Remove(listBox.Items[index]);
+            ScsUtils.WriteLog("In " + this.Name + ", modifica della riga " + item.Text);
         }
 
         /*  Form Resize */
@@ -127,6 +140,8 @@ namespace SelfDC
             listBox.Columns[0].Width = (int)(ctlWidth * 0.50);
             listBox.Columns[1].Width = (int)(ctlWidth * 0.30);
             listBox.Columns[1].Width = (int)(ctlWidth * 0.20);
+
+            ScsUtils.WriteLog("In " + this.Name + ", resize della finestra");
         }
 
         // Visualizza lo stato dello scanner nella barra di stato
@@ -137,12 +152,15 @@ namespace SelfDC
 
         private void actQuit(object sender, EventArgs e)
         {
+            bcReader.EnableScanner = false;
             this.Hide();
         }
 
         /** Esporta la lista in un file */
         private void actExport(object sender, EventArgs e)
         {
+            ScsUtils.WriteLog("In " + this.Name + ", esportazione dati su file");
+
             if (listBox.Items.Count == 0)
             {
                 MessageBox.Show(
@@ -227,6 +245,7 @@ namespace SelfDC
             if (txtCode.Text == "")
             {
                 MessageBox.Show("Niente da inserire", "Salva", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                actFieldReset();
                 return;
             }
 
@@ -250,7 +269,8 @@ namespace SelfDC
 
                 // nuovo inserimento con OrderItem
                 LabelItem newItem = new LabelItem(item.Text, item.SubItems[1].Text, Convert.ToInt32(item.SubItems[2].Text));
-                listaProdotti.Add(newItem);
+
+                ScsUtils.WriteLog("In " + this.Name + ", salvataggio modifiche alla riga " + item.Text);
             }
             else // Nuovo inserimento manuale
             {
@@ -270,6 +290,8 @@ namespace SelfDC
                 item.SubItems.Add(txtQta.Text);
 
                 listBox.Items.Add(item);
+
+                ScsUtils.WriteLog("In " + this.Name + ", nuovo inserimento della riga " + item.Text);
             }
 
             // pulisco e disabilito i campi
@@ -311,6 +333,8 @@ namespace SelfDC
         {
             DialogResult res;
 
+            ScsUtils.WriteLog("In " + this.Name + ", elimino tutti gli elementi");
+
             res = MessageBox.Show("Confermi l'eliminazine completa?", "Elimina Tutto"
                     , MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (res == DialogResult.No)
@@ -340,7 +364,7 @@ namespace SelfDC
         }
 
         /** richiesta chiusura */
-        private void MainForm_Closing(object sender, CancelEventArgs e)
+        private void LabelsForm_Closing(object sender, CancelEventArgs e)
         {
             DialogResult res = MessageBox.Show(
                             "Vuoi uscire dall'applicazione?"
@@ -353,7 +377,7 @@ namespace SelfDC
         }
 
         /** dopo conferma chiusura */
-        private void MainForm_Closed(object sender, EventArgs e)
+        private void LabelsForm_Closed(object sender, EventArgs e)
         {
             // Salvo le impostazioni
             Settings.SaveToFile(Settings.AppCfgFileName);
@@ -364,6 +388,13 @@ namespace SelfDC
             if (System.Environment.OSVersion.Platform.ToString() == "WinCE")
                 if (bcReader.EnableScanner) bcReader.EnableScanner = false;
 
+        }
+
+
+        private void LabelsForm_Activated(object sender, EventArgs e)
+        {
+            ScsUtils.WriteLog("Maschera " + this.Name + " attivata");
+            bcReader.EnableScanner = true;
         }
     }
 }

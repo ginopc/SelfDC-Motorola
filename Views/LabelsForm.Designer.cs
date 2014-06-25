@@ -39,9 +39,9 @@
             this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.bcReader = new Symbol.Barcode2.Design.Barcode2();
             this.mainMenu = new System.Windows.Forms.MainMenu();
+            this.mnuQuit = new System.Windows.Forms.MenuItem();
             this.mnuFile = new System.Windows.Forms.MenuItem();
             this.mnuExport = new System.Windows.Forms.MenuItem();
-            this.mnuQuit = new System.Windows.Forms.MenuItem();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.mnuRemove = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
@@ -90,6 +90,7 @@
             this.contextMenu.MenuItems.Add(this.cmnuDelete);
             this.contextMenu.MenuItems.Add(this.menuItem4);
             this.contextMenu.MenuItems.Add(this.menuItem6);
+            this.contextMenu.Popup += new System.EventHandler(this.contextMenu_Popup);
             // 
             // cmnuDelete
             // 
@@ -202,6 +203,11 @@
             this.mainMenu.MenuItems.Add(this.mnuFile);
             this.mainMenu.MenuItems.Add(this.menuItem5);
             // 
+            // mnuQuit
+            // 
+            this.mnuQuit.Text = "<<";
+            this.mnuQuit.Click += new System.EventHandler(this.actQuit);
+            // 
             // mnuFile
             // 
             this.mnuFile.MenuItems.Add(this.mnuExport);
@@ -211,11 +217,6 @@
             // 
             this.mnuExport.Text = "Esporta";
             this.mnuExport.Click += new System.EventHandler(this.actExport);
-            // 
-            // mnuQuit
-            // 
-            this.mnuQuit.Text = "<<";
-            this.mnuQuit.Click += new System.EventHandler(this.actQuit);
             // 
             // menuItem5
             // 
@@ -359,7 +360,7 @@
             this.clQta.Text = "qta";
             this.clQta.Width = 57;
             // 
-            // MainForm
+            // LabelsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -372,11 +373,12 @@
             this.Controls.Add(this.statusBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Menu = this.mainMenu;
-            this.Name = "MainForm";
+            this.Name = "LabelsForm";
             this.Text = "Self DC";
             this.Load += new System.EventHandler(this.LabelsForm_Load);
-            this.Closed += new System.EventHandler(this.MainForm_Closed);
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.MainForm_Closing);
+            this.Closed += new System.EventHandler(this.LabelsForm_Closed);
+            this.Activated += new System.EventHandler(this.LabelsForm_Activated);
+            this.Closing += new System.ComponentModel.CancelEventHandler(this.LabelsForm_Closing);
             this.Resize += new System.EventHandler(this.LabelsForm_Resize);
             this.panEdit.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

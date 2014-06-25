@@ -76,13 +76,22 @@
             // 
             // picButton13
             // 
+            picButton13.Enabled = false;
             picButton13.Image = ((System.Drawing.Image)(resources.GetObject("picButton13.Image")));
             picButton13.Location = new System.Drawing.Point(177, 34);
             picButton13.Name = "picButton13";
             picButton13.Size = new System.Drawing.Size(81, 75);
             picButton13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            picButton13.Visible = false;
             picButton13.Click += new System.EventHandler(this.actNewInventory);
+            // 
+            // picButton22
+            // 
+            picButton22.Image = ((System.Drawing.Image)(resources.GetObject("picButton22.Image")));
+            picButton22.Location = new System.Drawing.Point(90, 115);
+            picButton22.Name = "picButton22";
+            picButton22.Size = new System.Drawing.Size(81, 75);
+            picButton22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            picButton22.Click += new System.EventHandler(this.actAbout);
             // 
             // mnuMain
             // 
@@ -109,21 +118,12 @@
             this.mnuAbout.Text = "Info";
             this.mnuAbout.Click += new System.EventHandler(this.actAbout);
             // 
-            // picButton22
-            // 
-            picButton22.Image = ((System.Drawing.Image)(resources.GetObject("picButton22.Image")));
-            picButton22.Location = new System.Drawing.Point(90, 115);
-            picButton22.Name = "picButton22";
-            picButton22.Size = new System.Drawing.Size(81, 75);
-            picButton22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            picButton22.Click += new System.EventHandler(this.actAbout);
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(263, 195);
+            this.ClientSize = new System.Drawing.Size(640, 480);
             this.ControlBox = false;
             this.Controls.Add(picButton22);
             this.Controls.Add(picButton13);

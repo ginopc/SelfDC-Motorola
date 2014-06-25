@@ -20,12 +20,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1456C1661CEB3A562A49B04486F01D7E"
-        "OwnerKey" = "8:_BA8FD768092845ABBFEE4367233FDD77"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_20FEEA85CF98C8ED78771E970796C145"
         "OwnerKey" = "8:_04933B277153556D2FDD6FAEB92C5A8F"
         "MsmSig" = "8:_UNDEFINED"
@@ -117,12 +111,6 @@
         "Entry"
         {
         "MsmKey" = "8:_D872A7A05F40BBF6B8ED652068F4B14A"
-        "OwnerKey" = "8:_1456C1661CEB3A562A49B04486F01D7E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D872A7A05F40BBF6B8ED652068F4B14A"
         "OwnerKey" = "8:_BA8FD768092845ABBFEE4367233FDD77"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -136,12 +124,6 @@
         {
         "MsmKey" = "8:_DB52DCCB6139B0C790FB090BB1BE42A3"
         "OwnerKey" = "8:_A56C032FF50E77CB473CA14AEF399686"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DB52DCCB6139B0C790FB090BB1BE42A3"
-        "OwnerKey" = "8:_1456C1661CEB3A562A49B04486F01D7E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -188,20 +170,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F2DD0EF94C1F5325EA2935A2A96FA774"
-        "OwnerKey" = "8:_BA8FD768092845ABBFEE4367233FDD77"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_FCBAC6C849982E67035FFD34ECEFEA1D"
         "OwnerKey" = "8:_BA8FD768092845ABBFEE4367233FDD77"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FCBAC6C849982E67035FFD34ECEFEA1D"
-        "OwnerKey" = "8:_1456C1661CEB3A562A49B04486F01D7E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -218,7 +188,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:dist\\Debug\\SelfDC-Setup.cab"
+        "OutputFilename" = "8:dist\\SelfDC-Setup.cab"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
         "SignOutput" = "11:FALSE"
@@ -230,7 +200,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:dist\\Release\\SelfDC-Setup.cab"
+        "OutputFilename" = "8:..\\Release\\SelfDC_MT-Setup.cab"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
         "SignOutput" = "11:FALSE"
@@ -255,34 +225,6 @@
                     }
                 }
             "SourcePath" = "8:System.Data.DataSetExtensions.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BE2316A5E6C449E0A7403EADE0E18092"
-            "Condition" = "8:"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "Register" = "3:0"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_1456C1661CEB3A562A49B04486F01D7E"
-            {
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
-                "ScatterAssemblies"
-                {
-                    "_1456C1661CEB3A562A49B04486F01D7E"
-                    {
-                    "Name" = "8:System.Xml.Linq.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:System.Xml.Linq.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BE2316A5E6C449E0A7403EADE0E18092"
@@ -494,6 +436,7 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+<<<<<<< HEAD
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_F2DD0EF94C1F5325EA2935A2A96FA774"
             {
             "AssemblyIsInGAC" = "11:FALSE"
@@ -522,6 +465,8 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+=======
+>>>>>>> test_menu
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_FCBAC6C849982E67035FFD34ECEFEA1D"
             {
             "AssemblyIsInGAC" = "11:FALSE"

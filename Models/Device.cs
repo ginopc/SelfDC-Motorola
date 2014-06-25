@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SelfDC.Models
 {
-    class Device
+    class Device : Symbol.Barcode2.Design.Barcode2
     {
         // membri
         private string name;

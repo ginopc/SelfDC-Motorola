@@ -13,6 +13,7 @@ namespace SelfDC
 
         public MainMenu()
         {
+            ScsUtils.WriteLog("Creazione maschera " + this.Name);
             InitializeComponent();
             oForm = new OrderForm();
             lForm = new LabelsForm();
@@ -22,6 +23,8 @@ namespace SelfDC
         private void actAbout(object sender, EventArgs e)
         {
             string ProductName = Assembly.GetExecutingAssembly().FullName;
+
+            ScsUtils.WriteLog("Apertura info applicazione");
             MessageBox.Show(
                 ProductName + "\nDesigned by Maurizio Aru"
                 , "Info"
@@ -32,6 +35,7 @@ namespace SelfDC
 
         private void actQuit(object sender, EventArgs e)
         {
+            ScsUtils.WriteLog("Richiesta di chiusura dell'applicazione da " + this.GetType().ToString());
             Close();
         }
 
@@ -42,6 +46,12 @@ namespace SelfDC
             res = MessageBox.Show("Stai per chiudere l'applicazione?\nTutte le raccolte andranno perse\nContinuare?",
                 "Chiusura Applicazione", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (res == DialogResult.No) e.Cancel = true;
+            if (e.Cancel)
+                ScsUtils.WriteLog("Chiusura annullata dall'utente");
+            else
+            {
+                ScsUtils.WriteLog("Chiusura confermata dall'utente");
+            }
         }
 
         private void actNewOrder(object sender, EventArgs e)
@@ -97,6 +107,11 @@ namespace SelfDC
             }
              */ 
 
+        }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+            ScsUtils.WriteLog("Caricamento maschera " + this.Name);
         }
 
     }

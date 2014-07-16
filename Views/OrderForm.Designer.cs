@@ -42,7 +42,7 @@
             this.mnuQuit = new System.Windows.Forms.MenuItem();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.mnuExport = new System.Windows.Forms.MenuItem();
-            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.mnuEdit = new System.Windows.Forms.MenuItem();
             this.mnuRemove = new System.Windows.Forms.MenuItem();
             this.menuItem8 = new System.Windows.Forms.MenuItem();
             this.mnuRemoveAll = new System.Windows.Forms.MenuItem();
@@ -200,7 +200,7 @@
             // 
             this.mainMenu.MenuItems.Add(this.mnuQuit);
             this.mainMenu.MenuItems.Add(this.menuItem1);
-            this.mainMenu.MenuItems.Add(this.menuItem5);
+            this.mainMenu.MenuItems.Add(this.mnuEdit);
             // 
             // mnuQuit
             // 
@@ -217,12 +217,12 @@
             this.mnuExport.Text = "Esporta";
             this.mnuExport.Click += new System.EventHandler(this.actExport);
             // 
-            // menuItem5
+            // mnuEdit
             // 
-            this.menuItem5.MenuItems.Add(this.mnuRemove);
-            this.menuItem5.MenuItems.Add(this.menuItem8);
-            this.menuItem5.MenuItems.Add(this.mnuRemoveAll);
-            this.menuItem5.Text = "Edit";
+            this.mnuEdit.MenuItems.Add(this.mnuRemove);
+            this.mnuEdit.MenuItems.Add(this.menuItem8);
+            this.mnuEdit.MenuItems.Add(this.mnuRemoveAll);
+            this.mnuEdit.Text = "Modifica";
             // 
             // mnuRemove
             // 
@@ -395,7 +395,7 @@
         private System.Windows.Forms.MenuItem cmnuDelete;
         private System.Windows.Forms.MainMenu mainMenu;
         private System.Windows.Forms.MenuItem mnuQuit;
-        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem mnuEdit;
         private System.Windows.Forms.MenuItem mnuRemove;
         private System.Windows.Forms.MenuItem menuItem8;
         private System.Windows.Forms.MenuItem mnuRemoveAll;

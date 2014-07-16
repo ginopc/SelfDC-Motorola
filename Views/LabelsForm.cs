@@ -108,14 +108,20 @@ namespace SelfDC
         /** Elimina l'elemento selezionato */
         private void actRemove(object sender, EventArgs e)
         {
-            int index = listBox.SelectedIndices[0];
-            ListViewItem item = listBox.Items[index];
-
+            if (listBox.Items.Count == 0)
+            {
+                MessageBox.Show("Non ci sono righe da esportare", "Elimina Riga",
+                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+                return;
+            }
             if (listBox.SelectedIndices.Count == 0)
             {
                 MessageBox.Show("Seleziona l'elemento da eliminare","Elimina Riga");
                 return;
             }
+
+            int index = listBox.SelectedIndices[0];
+            ListViewItem item = listBox.Items[index];
 
             DialogResult res = MessageBox.Show(
                 "Vuoi eliminare la riga selezionata?"

@@ -135,6 +135,7 @@
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainMenu_Load);
             this.Closing += new System.ComponentModel.CancelEventHandler(this.MainMenu_Closing);
             this.Resize += new System.EventHandler(this.MainMenu_Resize);
             this.ResumeLayout(false);

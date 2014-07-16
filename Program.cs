@@ -14,32 +14,16 @@ namespace SelfDC
         [MTAThread]
         static void Main()
         {
-            /* Carico le impostazioni del programma */
-            ScsUtils.WriteLog("Caricamento impostazioni");
+            /* Load app settings */
+            ScsUtils.WriteLog("===========================");
+            ScsUtils.WriteLog("Caricamento impostazioni...");
             Settings.AppCfgFileName = string.Format("{0}\\conf.txt", ScsUtils.GetAppPath());
             Settings.LoadFromFile(Settings.AppCfgFileName);
 
+            /* show main form */
             Application.Run(new MainMenu());
 
-            /*
-            Application.Run(new MainMenu());
-             */
-            /*
-            ScsUtils.WriteLog("Creo nuovo ordine");
-            List<OrderItem> lista = new List<OrderItem>();
-            lista.Add(new OrderItem("123456"));
-            lista.Add(new OrderItem("111111"));
-            lista.Add(new OrderItem("222222"));
-            lista.Remove(new OrderItem("111111"));
-            
-            // Stampo la lista degli item dell'ordine
-            foreach(OrderItem item in lista)
-            {
-                Console.WriteLine("[DEBUG]: {0}", item.ToString());
-            }
-
-            Settings.SaveToFile(Settings.AppCfgFileName);
-             * */
+            ScsUtils.WriteLog("Applicazione terminata correttamente");
         }
     }
 }

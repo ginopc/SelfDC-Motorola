@@ -7,10 +7,10 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SelfDC")]
-[assembly: AssemblyDescription("Data Collector per PdV")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("S.C.S. sc a rl")]
-[assembly: AssemblyProduct("SelfDC")]
+[assembly: AssemblyDescription("Data Collector per Pda")]
+[assembly: AssemblyConfiguration("Motorola")]
+[assembly: AssemblyCompany("S.C.S. scarl")]
+[assembly: AssemblyProduct("SelfDC Motorola")]
 [assembly: AssemblyCopyright("Copyright © 2014 by Maurizio Aru")]
 [assembly: AssemblyTrademark("SCS")]
 [assembly: AssemblyCulture("")]

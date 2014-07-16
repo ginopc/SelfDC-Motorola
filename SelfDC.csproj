@@ -1,4 +1,5 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -20,6 +21,7 @@
     </FormFactorID>
     <StartupObject>SelfDC.Program</StartupObject>
     <ApplicationIcon>Selfy.ico</ApplicationIcon>
+    <DeployDirPrefix>%25CSIDL_PROGRAM_FILES%25</DeployDirPrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -89,14 +91,20 @@
     <EmbeddedResource Include="Views\LabelsForm.resx">
       <DependentUpon>LabelsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+      <LogicalName>
+      </LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
       <SubType>Designer</SubType>
+      <LogicalName>
+      </LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+      <LogicalName>
+      </LogicalName>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

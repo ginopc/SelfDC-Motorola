@@ -1,6 +1,9 @@
 Self DataColletor (SelfDC)
 ==========================
 
+##> Versione 0.0.5 del 29/10/2014
+Corretta dicitura su esportazione etichette "Esporta Ordine"
+
 ##> Versione 0.0.4 del 23/06/2014
 Nuova maschera LabelsForm per il collezionamento dei codici per stampare le etichette.
 Inserito form MenuForm con stile mobile per la selezione delle maschere

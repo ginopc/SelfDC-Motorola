@@ -5,7 +5,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfDC", "SelfDC.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfDCRestore", "..\Motorola-Restore\SelfDCRestore.csproj", "{B62540D3-D3EB-4273-9107-4532EB14AF08}"
 EndProject
-Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "Setup", "Setup.vddproj", "{2A8855DA-4290-44A0-B81B-6C1C41F561AF}"
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "Setup", "Setup.vddproj", "{C2B85489-DD54-4F8F-8CA8-D9C017025772}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceLib", "..\DeviceLib\DeviceLib.csproj", "{B47E34DD-6228-4567-BBC8-864FC8C122DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +27,14 @@ Global
 		{B62540D3-D3EB-4273-9107-4532EB14AF08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B62540D3-D3EB-4273-9107-4532EB14AF08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B62540D3-D3EB-4273-9107-4532EB14AF08}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{2A8855DA-4290-44A0-B81B-6C1C41F561AF}.Debug|Any CPU.ActiveCfg = Debug
-		{2A8855DA-4290-44A0-B81B-6C1C41F561AF}.Debug|Any CPU.Build.0 = Debug
-		{2A8855DA-4290-44A0-B81B-6C1C41F561AF}.Release|Any CPU.ActiveCfg = Release
-		{2A8855DA-4290-44A0-B81B-6C1C41F561AF}.Release|Any CPU.Build.0 = Release
+		{C2B85489-DD54-4F8F-8CA8-D9C017025772}.Debug|Any CPU.ActiveCfg = Debug
+		{C2B85489-DD54-4F8F-8CA8-D9C017025772}.Debug|Any CPU.Build.0 = Debug
+		{C2B85489-DD54-4F8F-8CA8-D9C017025772}.Release|Any CPU.ActiveCfg = Release
+		{C2B85489-DD54-4F8F-8CA8-D9C017025772}.Release|Any CPU.Build.0 = Release
+		{B47E34DD-6228-4567-BBC8-864FC8C122DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B47E34DD-6228-4567-BBC8-864FC8C122DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B47E34DD-6228-4567-BBC8-864FC8C122DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B47E34DD-6228-4567-BBC8-864FC8C122DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

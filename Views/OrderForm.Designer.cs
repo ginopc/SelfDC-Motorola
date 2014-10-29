@@ -387,11 +387,10 @@
 
         #endregion
 
-        private System.Windows.Forms.StatusBar statusBar;
 #if WindowsCE
         private Symbol.Barcode2.Design.Barcode2 bcReader;
 #endif
-
+        private System.Windows.Forms.StatusBar statusBar;
         private System.Windows.Forms.MenuItem cmnuDelete;
         private System.Windows.Forms.MainMenu mainMenu;
         private System.Windows.Forms.MenuItem mnuQuit;

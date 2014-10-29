@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Labels.cs" />
     <Compile Include="Models\LabelItem.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="Models\Order.cs" />
@@ -80,9 +81,6 @@
     </Compile>
     <Compile Include="Views\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Device.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Utils\Settings.cs" />

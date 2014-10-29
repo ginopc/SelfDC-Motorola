@@ -54,7 +54,7 @@ namespace SelfDC
             {
                 // codice ean
                 cbCodInterno.Checked = false;
-                txtCode.Text = code;
+                txtCode.Text = code.Substring(1,13);
             }
             txtQta.Text = "1";
 
@@ -67,7 +67,7 @@ namespace SelfDC
             int index = listBox.SelectedIndices[0];
             ListViewItem item = listBox.Items[index];
 
-            ScsUtils.WriteLog("In " + this.Name + ", modifica della riga " + item.Text);
+            ScsUtils.WriteLog(string.Format("In {0}, modifica della riga {1}", this.Name, index.ToString()));
 
             if (item.Text == "")
             {
@@ -162,9 +162,10 @@ namespace SelfDC
         /** Esporta la lista in un file */
         private void actExport(object sender, EventArgs e)
         {
-            ScsUtils.WriteLog("In " + this.Name + ", esportazione dati su file");
+            ScsUtils.WriteLog(string.Format("In {0}, esportazione dati su file {1}", this.Name, Settings.OrdineFileName));
 
-           if (listBox.Items.Count == 0)
+            // check if there is some lines
+            if (listBox.Items.Count == 0)
             {
                 MessageBox.Show(
                     "Nessun dato da esportare"
@@ -175,24 +176,25 @@ namespace SelfDC
                 return;
             }
 
+            // User confirm?
             DialogResult res = MessageBox.Show(
-                                    "Vuoi esportare l'ordine?", 
-                                    "Esporta Ordine", 
+                                    "Vuoi esportare il file?", 
+                                    "Esporta Etichette", 
                                     MessageBoxButtons.YesNo, 
                                     MessageBoxIcon.Question, 
                                     MessageBoxDefaultButton.Button1);
             if (res == DialogResult.No) return;
 
-            listaProdotti.Clear();
+            Order ordine = new Order();
             foreach (ListViewItem item in listBox.Items)
             {
-                listaProdotti.Add(new OrderItem(item.Text, item.SubItems[1].Text, Convert.ToInt32(item.SubItems[2].Text)));
+                ordine.Add(new OrderItem(item.Text, item.SubItems[1].Text, Convert.ToInt32(item.SubItems[2].Text)));
             }
-
-            if (ScsUtils.EsportaOrdine(listaProdotti,Settings.OrdineFileName) < 0)
+            if (ordine.ToFile(Settings.OrdineFileName) < 0)
             {
                 return;
             }
+
             listBox.Items.Clear();
             listBox_SelectedIndexChanged(sender, e);
             listaProdotti.Clear();

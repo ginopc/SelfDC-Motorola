@@ -68,7 +68,7 @@ namespace SelfDC
             int index = listBox.SelectedIndices[0];
             ListViewItem item = listBox.Items[index];
 
-            ScsUtils.WriteLog("In " + this.Name + ", modifica della riga " + item.Text);
+            ScsUtils.WriteLog(string.Format("In {0}, modifica della riga {1}", this.Name, index.ToString()));
 
             if (listBox.Items[index].Text == "")
             {
@@ -91,7 +91,7 @@ namespace SelfDC
         /** Inizia un nuovo inserimento manuale */
         private void actNew(object sender, EventArgs e)
         {
-            ScsUtils.WriteLog("In " + this.Name + ", inserimento nuova riga");
+            ScsUtils.WriteLog(string.Format("In {0}, inserimento nuova riga", this.Name));
 
             txtCode.Text = "";
             txtCode.Enabled = true;
@@ -133,7 +133,7 @@ namespace SelfDC
             if (res == DialogResult.No) return;
 
             listBox.Items.Remove(listBox.Items[index]);
-            ScsUtils.WriteLog("In " + this.Name + ", modifica della riga " + item.Text);
+            ScsUtils.WriteLog(string.Format("In {0}, cancellazione della riga {1}", this.Name, item.Text));
         }
 
         /*  Form Resize */
@@ -179,13 +179,24 @@ namespace SelfDC
             }
 
             DialogResult res = MessageBox.Show(
-                                    "Vuoi esportare l'ordine?", 
-                                    "Esporta Ordine", 
+                                    "Vuoi esportare il file?", 
+                                    "Esporta Etichette", 
                                     MessageBoxButtons.YesNo, 
                                     MessageBoxIcon.Question, 
                                     MessageBoxDefaultButton.Button1);
             if (res == DialogResult.No) return;
 
+            Labels labelList = new Labels();
+            foreach (ListViewItem item in listBox.Items)
+            {
+                labelList.Add(new LabelItem(item.Text, item.SubItems[1].Text, Convert.ToInt32(item.SubItems[2].Text)));
+            }
+            if (labelList.ToFile(Settings.EtichettaFilename) < 0)
+            {
+                return;
+            }
+
+            /* removed by M. Aru
             listaProdotti.Clear();
             foreach (ListViewItem item in listBox.Items)
             {
@@ -196,6 +207,7 @@ namespace SelfDC
             {
                 return;
             }
+             */ 
 
             listBox.Items.Clear();
             listBox_SelectedIndexChanged(sender, e);
